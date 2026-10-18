@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - TravelVista</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="travel-navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <i class="bi bi-airplane-engines-fill"></i>
+            TravelVista
+        </a>
+
+        <div class="nav-links">
+            <a href="destinations.html">Destinations</a>
+            <a href="packages.html">Holiday Packages</a>
+            <a href="hotels.html">Hotels</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-nav">Login</a>
+            <a href="signup.html" class="signup-nav">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="travel-hero signup-hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+        <div class="hero-text">
+            <span class="hero-tag">
+                <i class="bi bi-airplane"></i>
+                START YOUR NEXT ADVENTURE
+            </span>
+
+            <h1>Your next trip<br>
+                <span>starts with us.</span>
+            </h1>
+
+            <p>
+                Create your TravelVista account to discover beautiful
+                places, explore holiday packages and organise your trips.
+            </p>
+
+            <div class="hero-benefits">
+                <span><i class="bi bi-check-circle-fill"></i> Explore new destinations</span>
+                <span><i class="bi bi-check-circle-fill"></i> Find your ideal holiday</span>
+                <span><i class="bi bi-check-circle-fill"></i> Keep trips organised</span>
+            </div>
+        </div>
+
+        <!-- SIGNUP CARD -->
+        <div class="travel-auth-card signup-card">
+            <div class="card-top-icon">
+                <i class="bi bi-person-plus"></i>
+            </div>
+
+            <h2>Create your account</h2>
+            <p class="card-subtitle">Join TravelVista and start exploring</p>
+
+            <form id="signupForm">
+                <div class="field">
+                    <label for="signupName">Full name</label>
+                    <div class="field-input">
+                        <i class="bi bi-person"></i>
+                        <input type="text" id="signupName"
+                               placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="signupEmail">Email address</label>
+                    <div class="field-input">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" id="signupEmail"
+                               placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="signupMobile">Mobile number</label>
+                    <div class="field-input">
+                        <i class="bi bi-phone"></i>
+                        <input type="tel" id="signupMobile"
+                               placeholder="10-digit mobile number"
+                               pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="signupPassword">Create password</label>
+                    <div class="field-input">
+                        <i class="bi bi-lock"></i>
+                        <input type="password" id="signupPassword"
+                               placeholder="Minimum 6 characters"
+                               minlength="6" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="confirmPassword">Confirm password</label>
+                    <div class="field-input">
+                        <i class="bi bi-shield-lock"></i>
+                        <input type="password" id="confirmPassword"
+                               placeholder="Enter password again"
+                               minlength="6" required>
+                    </div>
+                </div>
+
+                <label class="terms-check">
+                    <input type="checkbox" id="terms" required>
+                    <span>I agree to the <a href="#" onclick="return false;">Terms & Conditions</a></span>
+                </label>
+
+                <button type="submit" class="submit-btn">
+                    Create Account
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="or-divider"><span>WELCOME ABOARD</span></div>
+
+            <p class="switch-account">
+                Already registered?
+                <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="signup-promise">
+    <i class="bi bi-compass"></i>
+    <span>One account. Endless possibilities. Unforgettable journeys.</span>
+</section>
+
+<footer class="travel-footer">
+    <p>© 2026 TravelVista. Explore more, travel better.</p>
+</footer>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

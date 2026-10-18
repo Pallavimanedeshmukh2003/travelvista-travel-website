@@ -1,0 +1,631 @@
+
+/* ==========================================
+   TRAVELVISTA - MAIN STYLESHEET
+========================================== */
+
+:root {
+    --primary: #1769aa;
+    --dark-blue: #102a43;
+    --accent: #ffc857;
+    --light-bg: #f5f9fc;
+    --text-color: #526579;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    padding-top: 76px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background: var(--light-bg);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ==========================================
+   FIXED NAVBAR
+========================================== */
+
+.travel-navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 72px;
+    padding: 12px 0;
+    background: rgba(16, 42, 67, 0.98) !important;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+    z-index: 1030;
+}
+
+.travel-navbar .navbar-brand {
+    color: var(--white);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.travel-navbar .navbar-brand i {
+    color: var(--accent);
+}
+
+.travel-navbar .nav-link {
+    color: var(--white);
+    margin-left: 8px;
+    padding: 10px 12px;
+    transition: color 0.3s ease;
+}
+
+.travel-navbar .nav-link:hover,
+.travel-navbar .nav-link.active {
+    color: var(--accent);
+}
+
+.travel-navbar .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.travel-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem rgba(255, 200, 87, 0.35);
+}
+
+/* ==========================================
+   HOME HERO SECTION - BACKGROUND IMAGE
+========================================== */
+
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 620px;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 35, 55, 0.58),
+            rgba(10, 35, 55, 0.58)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 9px 17px;
+    margin-bottom: 20px;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero-section h1 {
+    color: var(--white);
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero-section h1 span {
+    color: var(--accent);
+}
+
+.hero-section p {
+    max-width: 620px;
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+.hero-section .btn {
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 13px 22px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #10558c;
+    border-color: #10558c;
+}
+
+.btn-warning {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--dark-blue);
+}
+
+.btn-warning:hover {
+    background-color: #f2b938;
+    border-color: #f2b938;
+    color: var(--dark-blue);
+}
+
+/* ==========================================
+   SEARCH SECTION
+========================================== */
+
+.search-section {
+    position: relative;
+    z-index: 3;
+    margin-top: -35px;
+}
+
+.search-box {
+    padding: 28px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(16, 42, 67, 0.12);
+}
+
+.search-box .form-label {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.search-box .form-control,
+.search-box .form-select {
+    min-height: 46px;
+    border-color: #dbe4ed;
+}
+
+.search-box .form-control:focus,
+.search-box .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(23, 105, 170, 0.12);
+}
+
+.search-btn {
+    min-height: 46px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   COMMON SECTION STYLES
+========================================== */
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.section-heading {
+    margin-bottom: 42px;
+}
+
+.section-subtitle {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--primary);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    color: var(--dark-blue);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   DESTINATION CARDS
+========================================== */
+
+.destination-card {
+    height: 100%;
+    overflow: hidden;
+    border: none;
+    border-radius: 15px;
+    background: var(--white);
+    box-shadow: 0 5px 22px rgba(16, 42, 67, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(16, 42, 67, 0.15);
+}
+
+.destination-card .card-img-top {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.destination-card:hover .card-img-top {
+    transform: scale(1.04);
+}
+
+.destination-card .card-body {
+    padding: 22px;
+}
+
+.destination-card .card-title {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.destination-card .card-text {
+    min-height: 75px;
+    color: var(--text-color);
+}
+
+.rating {
+    color: #e6a100;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   WHY CHOOSE US
+========================================== */
+
+.why-section {
+    background: #edf4fa;
+}
+
+.feature-card {
+    height: 100%;
+    padding: 35px 25px;
+    border-radius: 15px;
+    background: var(--white);
+    box-shadow: 0 5px 20px rgba(16, 42, 67, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--primary);
+    font-size: 42px;
+}
+
+.feature-card h5 {
+    color: var(--dark-blue);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.travel-footer,
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+}
+
+.travel-footer {
+    padding: 55px 0 25px;
+    margin-top: 0;
+}
+
+.travel-footer h4,
+.travel-footer h5,
+footer h5 {
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.travel-footer h4 i {
+    color: var(--accent);
+}
+
+.travel-footer p,
+footer p {
+    color: #d8e2ec;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 9px;
+}
+
+.footer-links a {
+    color: #d8e2ec;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.travel-footer hr {
+    border-color: rgba(255, 255, 255, 0.25);
+    margin: 30px 0 20px;
+}
+
+/* ==========================================
+   GENERAL IMAGES
+========================================== */
+
+img {
+    height: auto;
+}
+
+.destination-card img {
+    height: 240px;
+    object-fit: cover;
+}
+
+/* ==========================================
+   RESPONSIVE NAVBAR COLLAPSE
+========================================== */
+
+@media (max-width: 991.98px) {
+    .travel-navbar .navbar-collapse {
+        max-height: calc(100vh - 85px);
+        overflow-y: auto;
+        margin-top: 10px;
+        padding: 12px 16px 18px;
+        background: var(--dark-blue);
+        border-radius: 0 0 12px 12px;
+    }
+
+    .travel-navbar .navbar-nav {
+        align-items: stretch !important;
+    }
+
+    .travel-navbar .nav-link {
+        display: block;
+        margin-left: 0;
+        padding: 12px 8px;
+    }
+
+    .travel-navbar .logout-btn {
+        margin-top: 8px;
+    }
+}
+
+/* =====================================
+   SPECIAL TRAVEL OFFERS
+===================================== */
+
+.special-offers {
+    background: #f5f9fc;
+    padding: 80px 0;
+}
+
+.offers-subtitle {
+    display: inline-block;
+    color: #1769aa;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.special-offers .section-heading h2 {
+    color: #102a43;
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.special-offers .section-heading p {
+    color: #526579;
+    margin-bottom: 40px;
+}
+
+.offer-card {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(16, 42, 67, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(16, 42, 67, 0.16);
+}
+
+.offer-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-image img {
+    transform: scale(1.07);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #ffc857;
+    color: #102a43;
+    padding: 8px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.offer-content {
+    padding: 24px;
+}
+
+.offer-category {
+    color: #1769aa;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.offer-content h3 {
+    color: #102a43;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.offer-content p {
+    color: #526579;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 48px;
+}
+
+.offer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #e8eef4;
+}
+
+.old-price {
+    color: #8996a5;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.offer-bottom h4 {
+    color: #1769aa;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 5px 0 0;
+}
+
+.offer-bottom h4 small {
+    color: #68798a;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.offer-btn {
+    display: inline-block;
+    background: #102a43;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+}
+
+.offer-btn:hover {
+    background: #1769aa;
+    color: #ffffff;
+}
+
+.all-offers-btn {
+    display: inline-block;
+    background: #1769aa;
+    color: #ffffff;
+    padding: 14px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.all-offers-btn:hover {
+    background: #102a43;
+    color: #ffffff;
+}
+
+@media (max-width: 576px) {
+    .special-offers {
+        padding: 55px 0;
+    }
+
+    .special-offers .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .offer-image {
+        height: 220px;
+    }
+
+    .offer-content {
+        padding: 20px;
+    }
+
+    .offer-content h3 {
+        font-size: 21px;
+    }
+
+    .offer-bottom {
+        flex-wrap: wrap;
+    }
+}

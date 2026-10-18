@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels | TravelVista</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background: #f5f8fc;
+            font-family: Arial, sans-serif;
+        }
+
+        .hotel-hero {
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            background:
+                linear-gradient(rgba(0, 35, 60, .65), rgba(0, 35, 60, .55)),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hotel-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+        }
+
+        .hotel-hero p {
+            font-size: 1.1rem;
+        }
+
+        .search-panel {
+            background: white;
+            padding: 24px;
+            margin-top: -35px;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .10);
+        }
+
+        .hotel-card {
+            height: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 22px rgba(0, 0, 0, .08);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .15);
+        }
+
+        .hotel-image {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+        }
+
+        .hotel-content {
+            padding: 20px;
+        }
+
+        .hotel-location {
+            color: #687586;
+            font-size: .92rem;
+        }
+
+        .hotel-price {
+            color: #087f8c;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .hotel-rating {
+            color: #e6a100;
+            font-weight: 700;
+        }
+
+        .hotel-tag {
+            display: inline-block;
+            background: #e6f6f4;
+            color: #087f8c;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        .hotel-card .btn {
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-weight: 800;
+            color: #123047;
+        }
+
+        footer {
+            background: #102b3f;
+            color: white;
+            padding: 25px 0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 576px) {
+            .hotel-image {
+                height: 200px;
+            }
+
+            .search-panel {
+                margin-top: -20px;
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top travel-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            TravelVista
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="destinations.html">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="hotels.html">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link login-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link signup-link" href="signup.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link user-name"></span>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-light btn-sm logout-btn"
+                            type="button" style="display:none">
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hotel-hero">
+    <div class="container">
+        <span class="hotel-tag mb-3">YOUR PERFECT STAY</span>
+        <h1>Find Your Perfect Hotel</h1>
+        <p class="mt-3">
+            Discover beautiful stays, luxury resorts and comfortable hotels
+            for your next adventure.
+        </p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- SEARCH AND FILTER -->
+    <section class="search-panel mb-5">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label for="hotelSearch" class="form-label fw-semibold">
+                    Search hotel or destination
+                </label>
+                <input type="search" id="hotelSearch" class="form-control"
+                       placeholder="Try Goa, Manali, Mumbai...">
+            </div>
+
+            <div class="col-md-4">
+                <label for="locationFilter" class="form-label fw-semibold">
+                    Filter by destination
+                </label>
+                <select id="locationFilter" class="form-select">
+                    <option value="all">All destinations</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Manali">Manali</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Lonavala">Lonavala</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Shimla">Shimla</option>
+                    <option value="Rishikesh">Rishikesh</option>
+                    <option value="Ooty">Ooty</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="priceSort" class="form-label fw-semibold">
+                    Sort by price
+                </label>
+                <select id="priceSort" class="form-select">
+                    <option value="default">Recommended</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOTEL LIST -->
+    <section class="mb-5">
+        <div class="d-flex flex-wrap justify-content-between
+                    align-items-center mb-4 gap-2">
+            <div>
+                <h2 class="section-title">Popular Hotels & Resorts</h2>
+                <p class="text-secondary mb-0">
+                    Explore stays for your next holiday.
+                </p>
+            </div>
+            <span class="badge text-bg-info p-2" id="hotelCount">
+                10 Hotels
+            </span>
+        </div>
+
+        <div class="row g-4" id="hotelGrid"></div>
+
+        <div id="noHotels" class="text-center py-5" style="display:none">
+            <h4>No hotels found</h4>
+            <p class="text-secondary">
+                Try another destination or search keyword.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container text-center">
+        <h5 class="fw-bold">TravelVista</h5>
+        <p class="mb-1">Discover the world, one journey at a time.</p>
+        <p class="mb-0">
+            &copy; <span id="currentYear"></span> TravelVista. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/hotels.js"></script>
+
+</body>
+</html>

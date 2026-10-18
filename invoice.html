@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TravelVista | Booking Invoice</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Invoice Page CSS -->
+    <style>
+        body {
+            background: #f3f6fb;
+            color: #263238;
+            font-family: Arial, sans-serif;
+        }
+
+        .invoice-wrapper {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 0 15px;
+        }
+
+        .invoice-paper {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 45px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .invoice-header {
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .brand-icon {
+            font-size: 36px;
+            color: #0d6efd;
+        }
+
+        .brand-name {
+            color: #0d6efd;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .invoice-label {
+            display: inline-block;
+            background: #e7f1ff;
+            color: #0d6efd;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .detail-label {
+            color: #6c757d;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .detail-item {
+            margin-bottom: 18px;
+        }
+
+        .invoice-table th {
+            background: #0d6efd;
+            color: #ffffff;
+            padding: 14px;
+            white-space: nowrap;
+        }
+
+        .invoice-table td {
+            padding: 14px;
+            vertical-align: middle;
+        }
+
+        .total-box {
+            background: #f1f6ff;
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .grand-total {
+            font-size: 25px;
+            font-weight: 800;
+            color: #0d6efd;
+        }
+
+        .payment-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #e8f5e9;
+            color: #198754;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            border-top: 1px dashed #cbd5e1;
+            margin-top: 35px;
+            padding-top: 22px;
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 25px 0 40px;
+        }
+
+        #invoiceCancellationSection {
+            background: #fff8f0;
+            border: 1px solid #ffdfb5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 576px) {
+            .invoice-wrapper {
+                margin: 20px auto;
+            }
+
+            .invoice-paper {
+                padding: 22px 16px;
+            }
+
+            .invoice-header {
+                text-align: center;
+            }
+
+            .invoice-header .text-end {
+                text-align: center !important;
+                margin-top: 20px;
+            }
+
+            .grand-total {
+                font-size: 21px;
+            }
+        }
+
+        /* Print styling */
+        @media print {
+            body {
+                background: #ffffff !important;
+            }
+
+            .navbar,
+            .action-buttons,
+            .no-print,
+            footer {
+                display: none !important;
+            }
+
+            .invoice-wrapper {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .invoice-paper {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 10px;
+            }
+
+            .invoice-table th {
+                background: #e9ecef !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .brand-name,
+            .grand-total,
+            .section-title {
+                color: #000000 !important;
+            }
+
+            #invoiceCancellationSection {
+                break-inside: avoid;
+            }
+
+            .invoice-header,
+            .total-box,
+            table {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark no-print">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-airplane-fill"></i>
+                TravelVista
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#invoiceNavbar"
+                aria-controls="invoiceNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="invoiceNavbar">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="packages.html">Packages</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Booking</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking-history.html">
+                            My Bookings
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- MAIN INVOICE -->
+    <main class="invoice-wrapper">
+
+        <!-- MESSAGE -->
+        <div id="invoiceMessage"
+             class="alert alert-info"
+             role="status">
+            <i class="bi bi-hourglass-split"></i>
+            Loading invoice...
+        </div>
+
+
+        <!-- INVOICE CONTENT -->
+        <div id="invoiceContent"
+             class="invoice-paper"
+             style="display: none;">
+
+            <!-- HEADER -->
+            <div class="row invoice-header align-items-center">
+
+                <div class="col-md-7">
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <i class="bi bi-airplane-engines-fill brand-icon"></i>
+
+                        <div>
+                            <h2 class="brand-name mb-1">
+                                TravelVista
+                            </h2>
+
+                            <p class="text-muted mb-0">
+                                Explore. Travel. Experience.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-5 text-end">
+
+                    <span class="invoice-label">BOOKING INVOICE</span>
+
+                    <p class="mt-3 mb-1">
+                        <strong>Invoice No:</strong>
+                        <span id="invoiceNumber">-</span>
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Invoice Date:</strong>
+                        <span id="invoiceDate">-</span>
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- BOOKING INFORMATION -->
+            <div class="row g-4 mb-4">
+
+                <!-- CUSTOMER -->
+                <div class="col-md-6">
+
+                    <h5 class="section-title">
+                        <i class="bi bi-person-circle"></i>
+                        Customer Information
+                    </h5>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Full Name</div>
+                        <div class="detail-value" id="invoiceCustomerName">-</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Email Address</div>
+                        <div class="detail-value" id="invoiceEmail">-</div>
+                    </div>
+
+                    <div class="detail-item mb-0">
+                        <div class="detail-label">Mobile Number</div>
+                        <div class="detail-value" id="invoiceMobile">-</div>
+                    </div>
+
+                </div>
+
+
+                <!-- BOOKING -->
+                <div class="col-md-6">
+
+                    <h5 class="section-title">
+                        <i class="bi bi-ticket-perforated"></i>
+                        Booking Information
+                    </h5>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Booking ID</div>
+                        <div class="detail-value" id="invoiceBookingId">-</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Booking Status</div>
+                        <div class="detail-value" id="invoiceBookingStatus">-</div>
+                    </div>
+
+                    <div class="detail-item mb-0">
+                        <div class="detail-label">Payment Status</div>
+                        <div class="detail-value" id="invoicePaymentStatus">-</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRIP DETAILS -->
+            <h5 class="section-title">
+                <i class="bi bi-geo-alt-fill"></i>
+                Travel Details
+            </h5>
+
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Destination</div>
+                    <div class="detail-value" id="invoiceDestination">-</div>
+                </div>
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Place / City</div>
+                    <div class="detail-value" id="invoicePlace">-</div>
+                </div>
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Package Name</div>
+                    <div class="detail-value" id="invoicePackage">-</div>
+                </div>
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Travel Date</div>
+                    <div class="detail-value" id="invoiceTravelDate">-</div>
+                </div>
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Number of Travellers</div>
+                    <div class="detail-value" id="invoicePersons">-</div>
+                </div>
+
+                <div class="col-md-6 detail-item">
+                    <div class="detail-label">Transport</div>
+                    <div class="detail-value" id="invoiceTransport">-</div>
+                </div>
+
+            </div>
+
+
+            <!-- PRICE TABLE -->
+            <h5 class="section-title">
+                <i class="bi bi-receipt"></i>
+                Price Summary
+            </h5>
+
+            <div class="table-responsive mb-4">
+
+                <table class="table table-bordered invoice-table">
+
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th class="text-center">Travellers</th>
+                            <th class="text-end">Price / Person</th>
+                            <th class="text-end">Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong id="invoicePackageDescription">
+                                    Travel Package
+                                </strong>
+                                <div class="small text-muted">
+                                    <span id="invoiceDestinationDescription">-</span>
+                                </div>
+                            </td>
+
+                            <td class="text-center">
+                                <span id="invoicePersonsCount">-</span>
+                            </td>
+
+                            <td class="text-end">
+                                <span id="invoicePricePerPerson">-</span>
+                            </td>
+
+                            <td class="text-end fw-bold">
+                                <span id="invoiceTotal">-</span>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+
+            <!-- TOTAL -->
+            <div class="row justify-content-end">
+
+                <div class="col-md-6">
+
+                    <div class="total-box">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Price per person</span>
+                            <strong id="invoiceSummaryPrice">-</strong>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Number of travellers</span>
+                            <strong id="invoiceSummaryPersons">-</strong>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">Grand Total</span>
+                            <span class="grand-total" id="invoiceGrandTotal">-</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- PAYMENT DETAILS -->
+            <div class="mt-4">
+
+                <h5 class="section-title">
+                    <i class="bi bi-credit-card"></i>
+                    Payment Information
+                </h5>
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <div class="detail-label">Payment Method</div>
+                        <div class="detail-value" id="invoicePaymentMethod">-</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="detail-label">Payment Status</div>
+                        <div class="detail-value" id="invoicePaymentStatusDetails">-</div>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+                    <span class="payment-badge" id="invoicePaymentBadge">
+                        Payment status unavailable
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- CANCELLATION / REFUND -->
+            <div id="invoiceCancellationSection" style="display: none;">
+
+                <h5 class="section-title">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Cancellation & Refund Details
+                </h5>
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <div class="detail-label">Cancellation Charge</div>
+                        <div class="detail-value" id="invoiceCancellationCharge">-</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="detail-label">Refund Amount</div>
+                        <div class="detail-value" id="invoiceRefundAmount">-</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="detail-label">Refund Status</div>
+                        <div class="detail-value" id="invoiceRefundStatus">-</div>
+                    </div>
+
+                </div>
+
+                <p class="small text-muted mt-3 mb-0">
+                    Refund information shown here reflects the status saved
+                    in this demo application.
+                </p>
+
+            </div>
+
+
+            <!-- FOOTER NOTE -->
+            <div class="footer-note text-center">
+
+                <h6 class="fw-bold text-dark">
+                    Thank you for choosing TravelVista!
+                </h6>
+
+                <p class="mb-2">
+                    We wish you a safe and memorable journey.
+                </p>
+
+                <p class="mb-0">
+                    This invoice was generated from your TravelVista booking record.
+                    Please retain it for your reference.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-buttons no-print">
+
+            <button
+                type="button"
+                id="printInvoice"
+                class="btn btn-primary btn-lg">
+
+                <i class="bi bi-printer-fill"></i>
+                Print / Save as PDF
+            </button>
+
+            <a href="booking-history.html"
+               class="btn btn-outline-secondary btn-lg">
+
+                <i class="bi bi-arrow-left"></i>
+                Back to My Bookings
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 no-print">
+
+        <div class="container text-center">
+
+            <h5 class="fw-bold">TravelVista</h5>
+
+            <p class="mb-1">Explore. Travel. Experience.</p>
+
+            <small class="text-secondary">
+                © 2026 TravelVista. All Rights Reserved.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- INVOICE JAVASCRIPT -->
+    <script src="js/invoice.js"></script>
+
+</body>
+</html>

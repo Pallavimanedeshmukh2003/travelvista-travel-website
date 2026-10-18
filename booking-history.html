@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings | TravelVista</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold"
+           href="index.html">
+
+            <i class="bi bi-airplane-fill"></i>
+            TravelVista
+
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="destinations.html">
+                        Destinations
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="packages.html">
+                        Packages
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="booking.html">
+                        Booking
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="booking-history.html">
+                        My Bookings
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="py-5 text-white"
+         style="
+         background:
+         linear-gradient(
+         rgba(0,0,0,0.60),
+         rgba(0,0,0,0.60)
+         ),
+         url('images/travel-bg.jpg')
+         center/cover;
+         ">
+
+    <div class="container text-center">
+
+        <h1 class="display-5 fw-bold">
+            My Bookings
+        </h1>
+
+        <p class="lead mb-0">
+            Manage and view all your TravelVista bookings
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING SECTION ================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <!-- TOP HEADER -->
+
+        <div class="d-flex
+                    flex-column
+                    flex-md-row
+                    justify-content-between
+                    align-items-md-center
+                    gap-3
+                    mb-4">
+
+            <div>
+
+                <h2 class="fw-bold mb-1">
+                    Your Trips
+                </h2>
+
+                <p class="text-muted mb-0">
+                    View your previous and current bookings
+                </p>
+
+            </div>
+
+            <a href="packages.html"
+               class="btn btn-primary">
+
+                <i class="bi bi-plus-circle"></i>
+                Book New Trip
+
+            </a>
+
+        </div>
+
+
+        <!-- ================= FILTERS ================= -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <!-- SEARCH -->
+
+                    <div class="col-md-5">
+
+                        <label class="form-label fw-semibold">
+                            Search Booking
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+
+                            <input
+                                type="text"
+                                id="bookingSearch"
+                                class="form-control"
+                                placeholder="Search by ID, destination, package...">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="col-md-3">
+
+                        <label class="form-label fw-semibold">
+                            Booking Status
+                        </label>
+
+                        <select
+                            id="bookingStatusFilter"
+                            class="form-select">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Confirmed">
+                                Confirmed
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SORT -->
+
+                    <div class="col-md-3">
+
+                        <label class="form-label fw-semibold">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="bookingSort"
+                            class="form-select">
+
+                            <option value="newest">
+                                Newest First
+                            </option>
+
+                            <option value="oldest">
+                                Oldest First
+                            </option>
+
+                            <option value="price-high">
+                                Price: High to Low
+                            </option>
+
+                            <option value="price-low">
+                                Price: Low to High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- RESET -->
+
+                    <div class="col-md-1 d-flex align-items-end">
+
+                        <button
+                            id="resetBookings"
+                            class="btn btn-outline-secondary w-100"
+                            title="Reset">
+
+                            <i class="bi bi-arrow-clockwise"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= COUNT ================= -->
+
+        <div class="mb-3">
+
+            <span class="fw-semibold">
+                Total Bookings:
+            </span>
+
+            <span id="bookingCount"
+                  class="badge bg-primary">
+                0
+            </span>
+
+        </div>
+
+
+        <!-- ================= BOOKING GRID ================= -->
+
+        <div id="bookingGrid"
+             class="row g-4">
+
+        </div>
+
+
+        <!-- ================= NO BOOKINGS ================= -->
+
+        <div id="noBookings"
+             class="text-center py-5 d-none">
+
+            <div class="mb-3">
+
+                <i class="bi bi-calendar-x"
+                   style="font-size: 60px;">
+                </i>
+
+            </div>
+
+            <h3>
+                No Bookings Found
+            </h3>
+
+            <p class="text-muted">
+                You have not made any bookings yet.
+            </p>
+
+            <a href="packages.html"
+               class="btn btn-primary">
+
+                Explore Packages
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-dark text-white py-4">
+
+    <div class="container text-center">
+
+        <h5 class="fw-bold">
+            TravelVista
+        </h5>
+
+        <p class="mb-1">
+            Explore. Travel. Experience.
+        </p>
+
+        <small class="text-secondary">
+            © 2026 TravelVista. All Rights Reserved.
+        </small>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script src="js/app.js"></script>
+
+<script src="js/booking-history.js"></script>
+
+</body>
+
+</html>

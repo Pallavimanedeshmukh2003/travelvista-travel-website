@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TravelVista | Explore the World</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top travel-navbar">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            <i class="bi bi-airplane-engines-fill"></i>
+            TravelVista
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="destinations.html">Destinations</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html">Packages</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hotels.html">Hotels</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a href="login.html" class="btn btn-outline-light btn-sm px-3">
+                        Login
+                    </a>
+                </li>
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="signup.html" class="btn btn-warning btn-sm px-3">
+                        Sign Up
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= HERO SECTION ================= -->
+<header class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <span class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    Your Journey, Our Passion
+                </span>
+
+                <h1>
+                    Explore the World<br>
+                    <span>With TravelVista</span>
+                </h1>
+
+                <p>
+                    Discover beautiful destinations, unforgettable adventures
+                    and amazing travel packages made for you.
+                </p>
+
+                <a href="packages.html" class="btn btn-warning btn-lg me-2">
+                    Explore Packages
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="destinations.html"
+                   class="btn btn-outline-light btn-lg mt-2 mt-sm-0">
+                    Discover Places
+                </a>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- ================= SEARCH SECTION ================= -->
+<section class="search-section">
+    <div class="container">
+
+        <form id="destinationSearch" class="search-box row g-3 align-items-end">
+
+            <div class="col-lg-4 col-md-6">
+                <label for="destination" class="form-label">
+                    <i class="bi bi-geo-alt-fill"></i> Destination
+                </label>
+
+                <input
+                    type="text"
+                    id="destination"
+                    class="form-control"
+                    placeholder="Where do you want to go?"
+                    required
+                >
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <label for="travelDate" class="form-label">
+                    <i class="bi bi-calendar-event"></i> Travel Date
+                </label>
+
+                <input
+                    type="date"
+                    id="travelDate"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <label for="travellers" class="form-label">
+                    <i class="bi bi-people-fill"></i> Travellers
+                </label>
+
+                <select id="travellers" class="form-select">
+                    <option value="1">1 Person</option>
+                    <option value="2" selected>2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5 People</option>
+                    <option value="6">6+ People</option>
+                </select>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <button type="submit" class="btn btn-primary w-100 search-btn">
+                    <i class="bi bi-search"></i> Search Trips
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+
+<!-- ================= SPECIAL TRAVEL OFFERS ================= -->
+<section class="special-offers section-padding" id="special-offers">
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span class="offers-subtitle">EXPLORE MORE, SPEND LESS</span>
+            <h2>Special Travel Offers</h2>
+            <p>Discover amazing places with exclusive travel deals.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- OFFER 1: GOA -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card">
+
+                    <div class="offer-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+                            alt="Beautiful Goa beach"
+                            loading="lazy"
+                        >
+
+                        <span class="discount-badge">20% OFF</span>
+                    </div>
+
+                    <div class="offer-content">
+                        <span class="offer-category">BEACH HOLIDAY</span>
+
+                        <h3>Tropical Goa Escape</h3>
+
+                        <p>
+                            Enjoy beautiful beaches, sunsets and
+                            a relaxing holiday.
+                        </p>
+
+                        <div class="offer-bottom">
+                            <div>
+                                <span class="old-price">₹12,000</span>
+                                <h4>₹9,600 <small>/ person</small></h4>
+                            </div>
+
+                            <a href="packages.html" class="offer-btn">
+                                View Offer
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- OFFER 2: MANALI -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card">
+
+                    <div class="offer-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80"
+                            alt="Beautiful Himalayan mountains"
+                            loading="lazy"
+                        >
+
+                        <span class="discount-badge">15% OFF</span>
+                    </div>
+
+                    <div class="offer-content">
+                        <span class="offer-category">MOUNTAIN ADVENTURE</span>
+
+                        <h3>Magical Manali Trip</h3>
+
+                        <p>
+                            Explore mountain views, fresh air
+                            and beautiful valleys.
+                        </p>
+
+                        <div class="offer-bottom">
+                            <div>
+                                <span class="old-price">₹15,000</span>
+                                <h4>₹12,750 <small>/ person</small></h4>
+                            </div>
+
+                            <a href="packages.html" class="offer-btn">
+                                View Offer
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- OFFER 3: KERALA -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card">
+
+                    <div class="offer-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+                            alt="Beautiful Kerala green landscape"
+                            loading="lazy"
+                        >
+
+                        <span class="discount-badge">25% OFF</span>
+                    </div>
+
+                    <div class="offer-content">
+                        <span class="offer-category">NATURE RETREAT</span>
+
+                        <h3>Kerala Nature Holiday</h3>
+
+                        <p>
+                            Experience green landscapes, peaceful
+                            backwaters and nature.
+                        </p>
+
+                        <div class="offer-bottom">
+                            <div>
+                                <span class="old-price">₹16,000</span>
+                                <h4>₹12,000 <small>/ person</small></h4>
+                            </div>
+
+                            <a href="packages.html" class="offer-btn">
+                                View Offer
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="packages.html" class="all-offers-btn">
+                Explore All Packages
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why-section section-padding">
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span class="section-subtitle">TRAVEL WITH CONFIDENCE</span>
+            <h2>Why Choose TravelVista?</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-wallet2 feature-icon"></i>
+                    <h5>Best Value Packages</h5>
+                    <p>
+                        Explore demo packages with clear pricing
+                        and inclusions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-shield-check feature-icon"></i>
+                    <h5>Booking Information</h5>
+                    <p>
+                        Review your selected trip details
+                        before confirming.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-headset feature-icon"></i>
+                    <h5>Travel Support</h5>
+                    <p>
+                        Find helpful travel information
+                        in one convenient place.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="travel-footer">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+                <h4>
+                    <i class="bi bi-airplane-engines-fill"></i>
+                    TravelVista
+                </h4>
+
+                <p>
+                    Discover new destinations and plan your next
+                    memorable journey with TravelVista.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Quick Links</h5>
+
+                <ul class="footer-links">
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Contact</h5>
+
+                <p>
+                    <i class="bi bi-envelope"></i>
+                    support@travelvista.demo
+                </p>
+
+                <p>
+                    <i class="bi bi-globe"></i>
+                    Explore the world with us
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            &copy; <span id="currentYear"></span> TravelVista.
+            Frontend Demo Project.
+        </p>
+
+    </div>
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

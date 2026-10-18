@@ -1,0 +1,1089 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | TravelVista</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --primary: #1769aa;
+            --dark: #102a43;
+            --accent: #ffc857;
+            --muted: #627d98;
+            --light: #f5f8fc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        .travel-navbar {
+            position: relative;
+            z-index: 1000;
+            background: var(--dark);
+            padding: 14px 0;
+        }
+
+        .brand-logo {
+            color: #fff !important;
+            font-size: 25px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .brand-logo i,
+        .brand-logo span {
+            color: var(--accent);
+        }
+
+        .travel-navbar .nav-link {
+            color: #f0f4f8;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 10px !important;
+            transition: .25s;
+        }
+
+        .travel-navbar .nav-link:hover,
+        .travel-navbar .nav-link.active {
+            color: var(--accent);
+        }
+
+        .travel-navbar .navbar-toggler {
+            border-color: rgba(255,255,255,.55);
+        }
+
+        .travel-navbar .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(255,200,87,.2);
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .login-link,
+        .signup-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            white-space: nowrap;
+            transition: .25s;
+        }
+
+        .login-link {
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.65);
+        }
+
+        .login-link:hover {
+            background: #fff;
+            color: var(--dark);
+        }
+
+        .signup-btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: 1px solid var(--accent);
+        }
+
+        .signup-btn:hover {
+            background: #ffb91f;
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* HERO - NEW BACKGROUND IMAGE */
+
+        .contact-hero {
+            min-height: 440px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8, 29, 48, .66),
+                    rgba(8, 29, 48, .38),
+                    rgba(8, 29, 48, .66)
+                ),
+                url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2200&q=85")
+                center 52% / cover no-repeat;
+        }
+
+        .hero-content {
+            padding: 70px 20px;
+            max-width: 850px;
+            color: #fff;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 9px 17px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,.5);
+            border-radius: 40px;
+            background: rgba(255,255,255,.12);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(36px, 6vw, 65px);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            max-width: 650px;
+            margin: auto;
+            color: #f0f4f8;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* SECTION HEADINGS */
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-heading small {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* CONTACT DETAILS AND FORM */
+
+        .contact-section {
+            padding: 75px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .contact-info {
+            padding: 36px;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 20px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info h2,
+        .contact-form-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 31px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: #d5e1ec;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            background: rgba(255,255,255,.1);
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        .info-item h5 {
+            font-size: 15px;
+            font-weight: 800;
+            margin: 0 0 6px;
+        }
+
+        .info-item p {
+            color: #d5e1ec;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .info-item a {
+            color: #d5e1ec;
+        }
+
+        .info-item a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 39px;
+            height: 39px;
+            color: #fff;
+            background: rgba(255,255,255,.1);
+            border-radius: 50%;
+            transition: .25s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .contact-form-box {
+            padding: 36px;
+            background: #fff;
+            border: 1px solid #e5eaf0;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(16,42,67,.06);
+        }
+
+        .contact-form-box > p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            color: #243b53;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .form-control,
+        .form-select {
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #d9e2ec;
+            border-radius: 9px;
+            background-color: #fbfcfe;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(23,105,170,.1);
+        }
+
+        textarea.form-control {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 20px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            transition: .25s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark);
+        }
+
+        .success-message {
+            display: none;
+            padding: 13px;
+            margin-bottom: 20px;
+            color: #176338;
+            background: #e8f7ee;
+            border-radius: 9px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* QUICK HELP */
+
+        .help-section {
+            padding: 0 0 75px;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .help-card {
+            text-align: center;
+            padding: 28px 22px;
+            background: #fff;
+            border: 1px solid #e5eaf0;
+            border-radius: 17px;
+            transition: .25s;
+        }
+
+        .help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(16,42,67,.08);
+        }
+
+        .help-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 16px;
+            border-radius: 16px;
+            background: #eaf4fb;
+            color: var(--primary);
+            font-size: 25px;
+        }
+
+        .help-card h4 {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .help-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* LOCATION */
+
+        .location-section {
+            padding-bottom: 75px;
+        }
+
+        .location-box {
+            min-height: 300px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background:
+                linear-gradient(rgba(16,42,67,.28), rgba(16,42,67,.28)),
+                url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85")
+                center / cover no-repeat;
+        }
+
+        .location-card {
+            max-width: 100%;
+            padding: 25px 30px;
+            background: #fff;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,.15);
+        }
+
+        .location-card > i {
+            color: var(--primary);
+            font-size: 30px;
+        }
+
+        .location-card h4 {
+            font-weight: 800;
+            margin: 8px 0;
+        }
+
+        .location-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .map-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .map-btn:hover {
+            color: #fff;
+            background: var(--dark);
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            padding: 45px 0 20px;
+            background: #091d30;
+            color: #dce6ef;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+            padding-bottom: 28px;
+        }
+
+        .footer-about {
+            max-width: 400px;
+        }
+
+        .footer-about p {
+            color: #b9c9d8;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-top: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 14px 20px;
+        }
+
+        .footer-links a {
+            color: #dce6ef;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,.14);
+        }
+
+        .footer-bottom p {
+            color: #b9c9d8;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1199px) {
+            .travel-navbar .nav-link {
+                padding-left: 7px !important;
+                padding-right: 7px !important;
+                font-size: 12px;
+            }
+
+            .login-link,
+            .signup-btn {
+                padding: 9px 12px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .travel-navbar .navbar-collapse {
+                padding-top: 16px;
+            }
+
+            .travel-navbar .navbar-nav {
+                align-items: stretch;
+            }
+
+            .travel-navbar .nav-link {
+                padding: 11px 5px !important;
+                font-size: 14px;
+            }
+
+            .navbar-actions {
+                padding-top: 15px;
+                border-top: 1px solid rgba(255,255,255,.15);
+                justify-content: flex-start;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .brand-logo {
+                font-size: 22px;
+            }
+
+            .navbar-actions {
+                width: 100%;
+                gap: 10px;
+            }
+
+            .navbar-actions a {
+                flex: 1;
+            }
+
+            .contact-hero {
+                min-height: 350px;
+            }
+
+            .hero-content {
+                padding: 55px 18px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 42px 0;
+            }
+
+            .contact-info,
+            .contact-form-box {
+                padding: 24px 18px;
+                border-radius: 16px;
+            }
+
+            .contact-info h2,
+            .contact-form-box h2 {
+                font-size: 27px;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-section,
+            .location-section {
+                padding-bottom: 45px;
+            }
+
+            .location-box {
+                min-height: 250px;
+                padding: 15px;
+            }
+
+            .location-card {
+                padding: 22px 18px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR: same shared style for website pages -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark travel-navbar">
+        <div class="container">
+
+            <a class="navbar-brand brand-logo" href="index.html">
+                <i class="bi bi-globe-americas"></i>
+                Travel<span>Vista</span>
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+                <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">Destinations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="packages.html">Packages</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">Hotels</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html" aria-current="page">Contact</a>
+                    </li>
+
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="login.html" class="login-link">
+                       
+                        Login
+                    </a>
+
+                    <a href="signup.html" class="signup-btn">
+                       
+                        Sign Up
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <header class="contact-hero">
+        <div class="hero-content">
+
+            <div class="hero-label">
+                <i class="bi bi-chat-dots"></i>
+                WE ARE HERE TO HELP
+            </div>
+
+            <h1>Let's Plan Your <span>Journey</span></h1>
+
+            <p>
+                Have questions about your next adventure?
+                Contact our team and let us help you plan
+                a wonderful travel experience.
+            </p>
+
+        </div>
+    </header>
+
+    <!-- CONTACT FORM AND INFORMATION -->
+
+    <section class="contact-section">
+        <div class="container">
+
+            <div class="contact-grid">
+
+                <div class="contact-info">
+
+                    <h2>Get In Touch</h2>
+
+                    <p>
+                        We would love to hear from you.
+                        Contact us for travel packages, destinations
+                        and holiday planning assistance.
+                    </p>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Our Office</h5>
+                            <p>Pune, Maharashtra, India</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div>
+                            <h5>Phone Number</h5>
+                            <p>
+                                <a href="tel:+919876543210">+91 98765 43210</a><br>
+                                Monday - Saturday, 9 AM - 7 PM
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email Address</h5>
+                            <p>
+                                <a href="mailto:support@travelvista.com">
+                                    support@travelvista.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="contact-form-box">
+
+                    <h2>Send Us a Message</h2>
+
+                    <p>
+                        Complete the form and tell us what you need help with.
+                    </p>
+
+                    <div id="successMessage" class="success-message" role="status" aria-live="polite">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Form validated successfully. This demo does not send
+                        messages to a server or email address.
+                    </div>
+
+                    <form id="contactForm">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="fullName"
+                                    name="fullName"
+                                    placeholder="Enter your full name"
+                                    maxlength="100"
+                                    autocomplete="name"
+                                    required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    maxlength="150"
+                                    autocomplete="email"
+                                    required>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Enter your phone number"
+                                    maxlength="20"
+                                    autocomplete="tel"
+                                    required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="booking">Booking Inquiry</option>
+                                    <option value="package">Travel Package</option>
+                                    <option value="hotel">Hotel Booking</option>
+                                    <option value="destination">Destination Information</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea
+                                class="form-control"
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                maxlength="2000"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="bi bi-send me-2"></i>
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK HELP -->
+
+    <section class="help-section">
+        <div class="container">
+
+            <div class="section-heading text-center">
+                <small>QUICK ASSISTANCE</small>
+                <h2>How Can We Help?</h2>
+                <p>We are here to make your travel planning easier.</p>
+            </div>
+
+            <div class="help-grid">
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-airplane"></i>
+                    </div>
+                    <h4>Plan Your Trip</h4>
+                    <p>
+                        Explore destinations and find a holiday
+                        package that suits your travel plans.
+                    </p>
+                </div>
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <h4>Booking Support</h4>
+                    <p>
+                        Ask questions about travel packages,
+                        hotel bookings and your holiday plans.
+                    </p>
+                </div>
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h4>Customer Support</h4>
+                    <p>
+                        Find assistance with your travel-related
+                        questions and general inquiries.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+
+    <section class="location-section">
+        <div class="container">
+
+            <div class="location-box">
+                <div class="location-card">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <h4>TravelVista</h4>
+                    <p>Pune, Maharashtra, India</p>
+
+                    <a
+                        class="map-btn"
+                        href="https://www.google.com/maps/search/?api=1&query=Pune%2C+Maharashtra%2C+India"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <i class="bi bi-map me-1"></i>
+                        Explore on Maps
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-about">
+                    <a href="index.html" class="brand-logo">
+                        <i class="bi bi-globe-americas"></i>
+                        Travel<span>Vista</span>
+                    </a>
+
+                    <p>
+                        Explore amazing destinations, discover
+                        memorable journeys and make every trip special.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="hotels.html">Hotels</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear"></span>
+                    TravelVista. All Rights Reserved.
+                </p>
+
+                <div class="social-links mt-0">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS for mobile navbar -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.getElementById("currentYear").textContent =
+                new Date().getFullYear();
+
+            const contactForm = document.getElementById("contactForm");
+            const successMessage = document.getElementById("successMessage");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!contactForm.checkValidity()) {
+                    contactForm.reportValidity();
+                    return;
+                }
+
+                successMessage.classList.add("show");
+
+                successMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+
+                contactForm.reset();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

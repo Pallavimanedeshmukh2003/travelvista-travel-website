@@ -1,0 +1,2645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | TravelVista</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: #f7f9fc;
+            color: #243b53;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .travel-navbar {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            padding: 18px 0;
+
+            background: rgba(10, 30, 48, 0.35);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+
+        }
+
+
+        .brand-logo {
+
+            color: white !important;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+
+        }
+
+
+        .brand-logo i {
+
+            color: #ffc857;
+
+            margin-right: 5px;
+
+        }
+
+
+        .brand-logo span {
+
+            color: #ffc857;
+
+        }
+
+
+        .navbar-nav {
+
+            gap: 5px;
+
+        }
+
+
+        .navbar-nav .nav-link {
+
+            color: rgba(255,255,255,0.88) !important;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            padding: 8px 13px !important;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .navbar-nav .nav-link:hover,
+
+        .navbar-nav .nav-link.active {
+
+            color: #ffc857 !important;
+
+        }
+
+
+        .navbar-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .login-link {
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .login-link:hover {
+
+            color: #ffc857;
+
+        }
+
+
+        .signup-btn {
+
+            padding: 9px 19px;
+
+            border-radius: 30px;
+
+            background: #ffc857;
+
+            color: #102a43;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .signup-btn:hover {
+
+            background: white;
+
+            color: #102a43;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .gallery-hero {
+
+            min-height: 470px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            background:
+
+                linear-gradient(
+                    rgba(8, 29, 48, 0.62),
+                    rgba(8, 29, 48, 0.72)
+                ),
+
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .gallery-hero-content {
+
+            padding: 120px 20px 70px;
+
+            color: white;
+
+        }
+
+
+        .gallery-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 9px 18px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(8px);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+        }
+
+
+        .gallery-label i {
+
+            color: #ffc857;
+
+        }
+
+
+        .gallery-hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(45px, 7vw, 76px);
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .gallery-hero h1 span {
+
+            color: #ffc857;
+
+        }
+
+
+        .gallery-hero p {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            color: rgba(255,255,255,0.88);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================
+           GALLERY SECTION
+        ========================================= */
+
+        .gallery-section {
+
+            padding: 85px 0;
+
+        }
+
+
+        .gallery-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .gallery-heading small {
+
+            color: #1769aa;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .gallery-heading h2 {
+
+            font-family: "Playfair Display", serif;
+
+            color: #102a43;
+
+            font-size: 44px;
+
+            font-weight: 700;
+
+            margin: 10px 0 14px;
+
+        }
+
+
+        .gallery-heading p {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            color: #627d98;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           FILTER BUTTONS
+        ========================================= */
+
+        .gallery-filters {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .gallery-filter {
+
+            border: 1px solid #d9e2ec;
+
+            background: white;
+
+            color: #526579;
+
+            padding: 10px 21px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .gallery-filter:hover,
+
+        .gallery-filter.active {
+
+            background: #1769aa;
+
+            border-color: #1769aa;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================
+           GALLERY GRID
+        ========================================= */
+
+        .gallery-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .gallery-item {
+
+            position: relative;
+
+            height: 280px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            cursor: pointer;
+
+            background: #ddd;
+
+        }
+
+
+        .gallery-item.large {
+
+            grid-column: span 2;
+
+            grid-row: span 2;
+
+            height: 578px;
+
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.6s ease;
+
+        }
+
+
+        .gallery-item:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* =========================================
+           OVERLAY
+        ========================================= */
+
+        .gallery-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    transparent 30%,
+                    rgba(0,0,0,0.82)
+                );
+
+            opacity: 0;
+
+            transition: 0.35s ease;
+
+        }
+
+
+        .gallery-item:hover .gallery-overlay {
+
+            opacity: 1;
+
+        }
+
+
+        .gallery-overlay-content {
+
+            color: white;
+
+            width: 100%;
+
+        }
+
+
+        .gallery-overlay-content h3 {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .gallery-overlay-content p {
+
+            color: rgba(255,255,255,0.80);
+
+            font-size: 13px;
+
+            margin: 0;
+
+        }
+
+
+        /* =========================================
+           VIEW ICON
+        ========================================= */
+
+        .gallery-view {
+
+            position: absolute;
+
+            top: 18px;
+
+            right: 18px;
+
+            width: 43px;
+
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.94);
+
+            color: #1769aa;
+
+            font-size: 18px;
+
+            opacity: 0;
+
+            transform: scale(0.8);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .gallery-item:hover .gallery-view {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .gallery-cta {
+
+            margin-top: 70px;
+
+            padding: 60px 30px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #102a43,
+                    #1769aa
+                );
+
+            color: white;
+
+        }
+
+
+        .gallery-cta h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 38px;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .gallery-cta p {
+
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+
+            color: rgba(255,255,255,0.82);
+
+            line-height: 1.7;
+
+        }
+
+
+        .gallery-cta-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            background: #ffc857;
+
+            color: #102a43;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .gallery-cta-btn:hover {
+
+            background: white;
+
+            color: #102a43;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================================
+           LIGHTBOX
+        ========================================= */
+
+        .gallery-lightbox {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,0.94);
+
+            z-index: 9999;
+
+        }
+
+
+        .gallery-lightbox.show {
+
+            display: flex;
+
+        }
+
+
+        .lightbox-image {
+
+            max-width: 92%;
+
+            max-height: 82vh;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+
+        }
+
+
+        .lightbox-close {
+
+            position: absolute;
+
+            top: 25px;
+
+            right: 30px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #102a43;
+
+            font-size: 23px;
+
+            cursor: pointer;
+
+        }
+
+
+        .lightbox-title {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 0;
+
+            right: 0;
+
+            text-align: center;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .site-footer {
+
+            background: #102a43;
+
+            color: white;
+
+            padding: 55px 0 20px;
+
+        }
+
+
+        .footer-content {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 40px;
+
+            padding-bottom: 35px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+
+        }
+
+
+        .footer-brand {
+
+            max-width: 390px;
+
+        }
+
+
+        .footer-brand p {
+
+            color: rgba(255,255,255,0.65);
+
+            line-height: 1.7;
+
+            margin-top: 15px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-content: flex-start;
+
+            gap: 15px 25px;
+
+            max-width: 500px;
+
+        }
+
+
+        .footer-links a {
+
+            color: rgba(255,255,255,0.72);
+
+            font-size: 14px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: #ffc857;
+
+        }
+
+
+        .footer-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-top: 20px;
+
+            gap: 20px;
+
+        }
+
+
+        .footer-bottom p {
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 13px;
+
+            margin: 0;
+
+        }
+
+
+        .footer-social {
+
+            display: flex;
+
+            gap: 9px;
+
+        }
+
+
+        .footer-social a {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.08);
+
+            color: white;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .footer-social a:hover {
+
+            background: #ffc857;
+
+            color: #102a43;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE TABLET
+        ========================================= */
+
+        @media (max-width: 992px) {
+
+            .gallery-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .gallery-item.large {
+
+                grid-column: span 2;
+
+                grid-row: span 2;
+
+                height: 450px;
+
+            }
+
+
+            .navbar-actions {
+
+                margin-top: 10px;
+
+            }
+
+
+            .footer-content {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE MOBILE
+        ========================================= */
+
+        @media (max-width: 576px) {
+
+            .travel-navbar {
+
+                padding: 12px 0;
+
+            }
+
+
+            .gallery-hero {
+
+                min-height: 420px;
+
+            }
+
+
+            .gallery-hero-content {
+
+                padding: 100px 20px 50px;
+
+            }
+
+
+            .gallery-hero h1 {
+
+                font-size: 43px;
+
+            }
+
+
+            .gallery-hero p {
+
+                font-size: 15px;
+
+            }
+
+
+            .gallery-section {
+
+                padding: 55px 0;
+
+            }
+
+
+            .gallery-heading h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .gallery-filters {
+
+                gap: 7px;
+
+            }
+
+
+            .gallery-filter {
+
+                padding: 8px 15px;
+
+                font-size: 13px;
+
+            }
+
+
+            .gallery-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+
+            }
+
+
+            .gallery-item,
+
+            .gallery-item.large {
+
+                grid-column: span 1;
+
+                grid-row: span 1;
+
+                height: 300px;
+
+            }
+
+
+            .gallery-overlay {
+
+                opacity: 1;
+
+            }
+
+
+            .gallery-view {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+
+            .gallery-cta {
+
+                margin-top: 45px;
+
+                padding: 42px 20px;
+
+            }
+
+
+            .gallery-cta h2 {
+
+                font-size: 29px;
+
+            }
+
+
+            .footer-content {
+
+                gap: 25px;
+
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+
+            .navbar-actions {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark travel-navbar">
+
+        <div class="container">
+
+
+            <a class="navbar-brand brand-logo" href="index.html">
+
+                <i class="bi bi-globe-americas"></i>
+
+                Travel<span>Vista</span>
+
+            </a>
+
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="destinations.html">
+                            Destinations
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="packages.html">
+                            Packages
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="hotels.html">
+                            Hotels
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="gallery.html">
+                            Gallery
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+
+                    </li>
+
+                </ul>
+
+
+                <div class="navbar-actions">
+
+                    <a
+                        href="login.html"
+                        class="login-link">
+
+                        Login
+
+                    </a>
+
+
+                    <a
+                        href="signup.html"
+                        class="signup-btn">
+
+                        Sign Up
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <header class="gallery-hero">
+
+        <div class="gallery-hero-content">
+
+
+            <div class="gallery-label">
+
+                <i class="bi bi-camera"></i>
+
+                TRAVEL MEMORIES
+
+            </div>
+
+
+            <h1>
+
+                Explore Our
+                <span>Gallery</span>
+
+            </h1>
+
+
+            <p>
+
+                Discover breathtaking destinations,
+                unforgettable moments and beautiful
+                experiences captured from around the world.
+
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         GALLERY
+    ========================================= -->
+
+    <main class="gallery-section">
+
+        <div class="container">
+
+
+            <!-- Heading -->
+
+            <div class="gallery-heading">
+
+                <small>
+                    Travel Inspiration
+                </small>
+
+
+                <h2>
+                    Moments Worth Remembering
+                </h2>
+
+
+                <p>
+
+                    Get inspired for your next adventure
+                    with our collection of beautiful
+                    travel destinations and unforgettable
+                    experiences.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- FILTERS -->
+
+            <div class="gallery-filters">
+
+
+                <button
+                    class="gallery-filter active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+
+                <button
+                    class="gallery-filter"
+                    data-filter="beach">
+
+                    Beaches
+
+                </button>
+
+
+                <button
+                    class="gallery-filter"
+                    data-filter="mountain">
+
+                    Mountains
+
+                </button>
+
+
+                <button
+                    class="gallery-filter"
+                    data-filter="city">
+
+                    Cities
+
+                </button>
+
+
+                <button
+                    class="gallery-filter"
+                    data-filter="nature">
+
+                    Nature
+
+                </button>
+
+
+                <button
+                    class="gallery-filter"
+                    data-filter="culture">
+
+                    Culture
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================
+                 20 PHOTOS
+            ================================= -->
+
+            <div class="gallery-grid">
+
+
+                <!-- 01 -->
+
+                <div
+                    class="gallery-item large"
+                    data-category="beach">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85"
+                        alt="Maldives Beach">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Maldives
+                            </h3>
+
+                            <p>
+                                Crystal-clear water and tropical beaches
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 02 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="mountain">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
+                        alt="Swiss Alps">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Swiss Alps
+                            </h3>
+
+                            <p>
+                                Beautiful mountain landscapes
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 03 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="city">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85"
+                        alt="Dubai">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Dubai
+                            </h3>
+
+                            <p>
+                                Modern city and luxury experiences
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 04 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="nature">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85"
+                        alt="New Zealand">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                New Zealand
+                            </h3>
+
+                            <p>
+                                Peaceful nature and landscapes
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 05 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="beach">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=85"
+                        alt="Bali Beach">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Bali
+                            </h3>
+
+                            <p>
+                                Island life and beautiful beaches
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 06 -->
+
+                <div
+                    class="gallery-item large"
+                    data-category="mountain">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85"
+                        alt="Manali">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Manali
+                            </h3>
+
+                            <p>
+                                Snow-covered Himalayan mountains
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 07 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="culture">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=85"
+                        alt="India">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                India
+                            </h3>
+
+                            <p>
+                                History, culture and heritage
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 08 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="city">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=900&q=85"
+                        alt="London">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                London
+                            </h3>
+
+                            <p>
+                                Classic architecture and city life
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 09 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="nature">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
+                        alt="Forest">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Forest Escape
+                            </h3>
+
+                            <p>
+                                Green forests and peaceful atmosphere
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 10 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="beach">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=85"
+                        alt="Goa">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Goa
+                            </h3>
+
+                            <p>
+                                Sun, sand and unforgettable evenings
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 11 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="culture">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=85"
+                        alt="Thailand">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Thailand
+                            </h3>
+
+                            <p>
+                                Temples, traditions and culture
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 12 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="nature">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85"
+                        alt="Green Mountains">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Green Mountains
+                            </h3>
+
+                            <p>
+                                Breathtaking natural beauty
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 13 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="beach">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=900&q=85"
+                        alt="Tropical Island">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Tropical Island
+                            </h3>
+
+                            <p>
+                                Relaxing island getaway
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 14 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="mountain">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=85"
+                        alt="Mountain Valley">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Mountain Valley
+                            </h3>
+
+                            <p>
+                                Adventure surrounded by mountains
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 15 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="city">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85"
+                        alt="New York">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                New York
+                            </h3>
+
+                            <p>
+                                The city that never sleeps
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 16 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="nature">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=900&q=85"
+                        alt="Waterfall">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Waterfall
+                            </h3>
+
+                            <p>
+                                Refreshing natural beauty
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 17 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="culture">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85"
+                        alt="Indian Heritage">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Indian Heritage
+                            </h3>
+
+                            <p>
+                                Architecture and cultural beauty
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 18 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="beach">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=900&q=85"
+                        alt="Ocean">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Ocean Escape
+                            </h3>
+
+                            <p>
+                                Beautiful blue ocean views
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 19 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="mountain">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=900&q=85"
+                        alt="Himalayas">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Himalayas
+                            </h3>
+
+                            <p>
+                                Epic mountain adventure
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 20 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="city">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1496588152823-86ff7695e68f?auto=format&fit=crop&w=900&q=85"
+                        alt="Paris">
+
+                    <div class="gallery-overlay">
+
+                        <div class="gallery-overlay-content">
+
+                            <h3>
+                                Paris
+                            </h3>
+
+                            <p>
+                                Romantic streets and beautiful city views
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-view">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 CTA
+            ================================= -->
+
+            <div class="gallery-cta">
+
+                <h2>
+                    Ready for Your Next Adventure?
+                </h2>
+
+
+                <p>
+
+                    Explore amazing destinations and
+                    start planning your unforgettable
+                    journey with TravelVista.
+
+                </p>
+
+
+                <a
+                    href="destinations.html"
+                    class="gallery-cta-btn">
+
+                    Explore Destinations
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         LIGHTBOX
+    ========================================= -->
+
+    <div
+        class="gallery-lightbox"
+        id="galleryLightbox">
+
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <img
+            src=""
+            alt="Gallery Preview"
+            class="lightbox-image"
+            id="lightboxImage">
+
+
+        <div
+            class="lightbox-title"
+            id="lightboxTitle">
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+
+            <div class="footer-content">
+
+
+                <div class="footer-brand">
+
+
+                    <a
+                        href="index.html"
+                        class="brand-logo">
+
+                        <i class="bi bi-globe-americas"></i>
+
+                        Travel<span>Vista</span>
+
+                    </a>
+
+
+                    <p>
+
+                        Discover beautiful places,
+                        create unforgettable memories
+                        and travel the world with confidence.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="footer-links">
+
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+
+                    <a href="destinations.html">
+                        Destinations
+                    </a>
+
+
+                    <a href="packages.html">
+                        Packages
+                    </a>
+
+
+                    <a href="hotels.html">
+                        Hotels
+                    </a>
+
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-bottom">
+
+
+                <p>
+
+                    ©
+
+                    <span id="currentYear"></span>
+
+                    TravelVista.
+                    All Rights Reserved.
+
+                </p>
+
+
+
+                <div class="footer-social">
+
+
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         BOOTSTRAP JS
+    ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- =========================================
+         GALLERY JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =================================
+                   CURRENT YEAR
+                ================================= */
+
+                const currentYear =
+                    document.getElementById("currentYear");
+
+
+                if (currentYear) {
+
+                    currentYear.textContent =
+                        new Date().getFullYear();
+
+                }
+
+
+
+                /* =================================
+                   FILTER
+                ================================= */
+
+                const filterButtons =
+                    document.querySelectorAll(
+                        ".gallery-filter"
+                    );
+
+
+                const galleryItems =
+                    document.querySelectorAll(
+                        ".gallery-item"
+                    );
+
+
+                filterButtons.forEach(
+                    function (button) {
+
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+
+                                /* Remove active */
+
+                                filterButtons.forEach(
+                                    function (btn) {
+
+                                        btn.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                                /* Add active */
+
+                                button.classList.add(
+                                    "active"
+                                );
+
+
+                                const filter =
+                                    button.getAttribute(
+                                        "data-filter"
+                                    );
+
+
+                                /* Filter photos */
+
+                                galleryItems.forEach(
+                                    function (item) {
+
+
+                                        const category =
+                                            item.getAttribute(
+                                                "data-category"
+                                            );
+
+
+                                        if (
+                                            filter === "all" ||
+                                            category === filter
+                                        ) {
+
+                                            item.style.display =
+                                                "block";
+
+                                        }
+
+                                        else {
+
+                                            item.style.display =
+                                                "none";
+
+                                        }
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                /* =================================
+                   LIGHTBOX
+                ================================= */
+
+                const lightbox =
+                    document.getElementById(
+                        "galleryLightbox"
+                    );
+
+
+                const lightboxImage =
+                    document.getElementById(
+                        "lightboxImage"
+                    );
+
+
+                const lightboxTitle =
+                    document.getElementById(
+                        "lightboxTitle"
+                    );
+
+
+                const lightboxClose =
+                    document.getElementById(
+                        "lightboxClose"
+                    );
+
+
+
+                /* Open image */
+
+                galleryItems.forEach(
+                    function (item) {
+
+
+                        item.addEventListener(
+                            "click",
+                            function () {
+
+
+                                const image =
+                                    item.querySelector(
+                                        "img"
+                                    );
+
+
+                                const title =
+                                    item.querySelector(
+                                        "h3"
+                                    );
+
+
+                                if (!image) {
+
+                                    return;
+
+                                }
+
+
+                                lightboxImage.src =
+                                    image.src;
+
+
+                                lightboxImage.alt =
+                                    image.alt;
+
+
+                                if (title) {
+
+                                    lightboxTitle.textContent =
+                                        title.textContent;
+
+                                }
+
+
+                                lightbox.classList.add(
+                                    "show"
+                                );
+
+
+                                document.body.style.overflow =
+                                    "hidden";
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                /* Close */
+
+                function closeLightbox() {
+
+                    lightbox.classList.remove(
+                        "show"
+                    );
+
+
+                    document.body.style.overflow =
+                        "";
+
+                }
+
+
+                lightboxClose.addEventListener(
+                    "click",
+                    closeLightbox
+                );
+
+
+
+                /* Click outside */
+
+                lightbox.addEventListener(
+                    "click",
+                    function (event) {
+
+
+                        if (
+                            event.target === lightbox
+                        ) {
+
+                            closeLightbox();
+
+                        }
+
+                    }
+                );
+
+
+
+                /* Escape key */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+
+                        if (
+                            event.key === "Escape"
+                        ) {
+
+                            closeLightbox();
+
+                        }
+
+                    }
+                );
+
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

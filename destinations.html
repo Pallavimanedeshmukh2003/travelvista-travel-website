@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destinations | TravelVista</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/destinations.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark travel-navbar">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            <i class="bi bi-airplane-engines-fill"></i> TravelVista
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="destinations.html">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-warning rounded-pill px-4"
+                       href="signup.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="destination-hero">
+    <div class="destination-overlay"></div>
+
+    <div class="container destination-hero-content text-center">
+        <span class="hero-tag">EXPLORE THE WORLD</span>
+
+        <h1>Discover Beautiful Destinations</h1>
+
+        <p>
+            Find amazing places, explore beautiful views and
+            create unforgettable travel memories.
+        </p>
+
+        <a href="#explore-destinations"
+           class="btn btn-warning btn-lg rounded-pill px-4">
+            Explore Destinations
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<section class="destinations-section" id="explore-destinations">
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span class="section-label">YOUR NEXT ADVENTURE</span>
+            <h2>Explore Popular Places</h2>
+            <p>
+                Choose a destination and discover its beaches,
+                mountains, cities and famous attractions.
+            </p>
+        </div>
+
+        <div class="destination-filter-panel">
+            <div class="row g-3">
+
+                <div class="col-lg-4 col-md-6">
+                    <label for="destinationSearch" class="form-label">
+                        Search Places
+                    </label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+
+                        <input type="search"
+                               id="destinationSearch"
+                               class="form-control"
+                               placeholder="Search a place name...">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <label for="destinationSelect" class="form-label">
+                        Select Destination
+                    </label>
+
+                    <select id="destinationSelect" class="form-select">
+                        <option value="all">All Destinations</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Manali">Manali</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Kashmir">Kashmir</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Ranthambore">Ranthambore</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <label for="categorySelect" class="form-label">
+                        Select Category
+                    </label>
+
+                    <select id="categorySelect" class="form-select">
+                        <option value="all">All Categories</option>
+                        <option value="beach">Beaches</option>
+                        <option value="mountain">Mountains</option>
+                        <option value="nature">Nature</option>
+                        <option value="city">Cities</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="heritage">Heritage</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="destination-result-bar">
+            <div>
+                <h5 class="mb-1">Amazing Places</h5>
+                <p class="mb-0" id="resultCount">Loading places...</p>
+            </div>
+
+            <button class="btn btn-outline-primary rounded-pill"
+                    id="resetFilters">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Reset Filters
+            </button>
+        </div>
+
+        <div class="row g-4" id="destinationGrid"></div>
+
+        <div id="noResults" class="no-results d-none">
+            <i class="bi bi-geo-alt"></i>
+            <h4>No places found</h4>
+            <p>Try another destination or search keyword.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="destination-cta">
+    <div class="container text-center">
+        <h2>Your Next Journey Starts Here</h2>
+        <p>
+            Discover new places and find the perfect holiday
+            package for your next trip.
+        </p>
+
+        <a href="packages.html"
+           class="btn btn-warning btn-lg rounded-pill px-4">
+            Explore Tour Packages
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<footer class="destination-footer">
+    <div class="container text-center">
+        <h5>
+            <i class="bi bi-airplane-engines-fill"></i> TravelVista
+        </h5>
+        <p>Discover the world, one journey at a time.</p>
+        <small>© 2026 TravelVista. All rights reserved.</small>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/destinations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Trip | TravelVista</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background: #f4f8fb;
+            font-family: Arial, sans-serif;
+        }
+
+        .booking-hero {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(5, 35, 50, 0.55),
+                    rgba(5, 35, 50, 0.70)
+                ),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .booking-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .booking-section {
+            padding: 55px 0;
+        }
+
+        .booking-card,
+        .summary-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            color: #087f8c;
+            font-weight: 800;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .continue-btn {
+            background: #087f8c;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .continue-btn:hover {
+            background: #05616b;
+            color: white;
+        }
+
+        .summary-item {
+            border-bottom: 1px solid #eeeeee;
+            padding: 12px 0;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .total-box {
+            background: #e9f8f8;
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .total-price {
+            color: #087f8c;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .required-star {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            ✈ TravelVista
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="destinations.html">
+                        Destinations
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html">
+                        Packages
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="booking.html">
+                        Booking
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="booking-history.html">
+                        My Bookings
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-outline-light btn-sm"
+                       href="login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="booking-hero">
+
+    <div class="container">
+
+        <h1>Book Your Dream Trip</h1>
+
+        <p class="lead mb-0">
+            Complete your details and continue to secure your journey.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- BOOKING SECTION -->
+
+<section class="booking-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- BOOKING FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="booking-card">
+
+                    <h2 class="section-title mb-2">
+                        Traveller Details
+                    </h2>
+
+                    <p class="text-muted mb-4">
+                        Enter your details carefully.
+                    </p>
+
+
+                    <div id="bookingMessage"
+                         class="alert d-none">
+                    </div>
+
+
+                    <form id="bookingForm">
+
+                        <!-- NAME -->
+
+                        <div class="mb-3">
+
+                            <label for="customerName"
+                                   class="form-label fw-semibold">
+
+                                Full Name
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <input type="text"
+                                   id="customerName"
+                                   class="form-control"
+                                   placeholder="Enter your full name"
+                                   minlength="3"
+                                   required>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="mb-3">
+
+                            <label for="customerEmail"
+                                   class="form-label fw-semibold">
+
+                                Email Address
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <input type="email"
+                                   id="customerEmail"
+                                   class="form-control"
+                                   placeholder="example@gmail.com"
+                                   required>
+
+                        </div>
+
+
+                        <!-- MOBILE -->
+
+                        <div class="mb-3">
+
+                            <label for="customerMobile"
+                                   class="form-label fw-semibold">
+
+                                Mobile Number
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <input type="tel"
+                                   id="customerMobile"
+                                   class="form-control"
+                                   placeholder="10 digit mobile number"
+                                   maxlength="10"
+                                   pattern="[6-9][0-9]{9}"
+                                   required>
+
+                        </div>
+
+
+                        <!-- TRAVEL DATE -->
+
+                        <div class="mb-3">
+
+                            <label for="travelDate"
+                                   class="form-label fw-semibold">
+
+                                Travel Date
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <input type="date"
+                                   id="travelDate"
+                                   class="form-control"
+                                   required>
+
+                        </div>
+
+
+                        <!-- PERSONS -->
+
+                        <div class="mb-3">
+
+                            <label for="persons"
+                                   class="form-label fw-semibold">
+
+                                Number of Travellers
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <select id="persons"
+                                    class="form-select"
+                                    required>
+
+                                <option value="1">
+                                    1 Traveller
+                                </option>
+
+                                <option value="2" selected>
+                                    2 Travellers
+                                </option>
+
+                                <option value="3">
+                                    3 Travellers
+                                </option>
+
+                                <option value="4">
+                                    4 Travellers
+                                </option>
+
+                                <option value="5">
+                                    5 Travellers
+                                </option>
+
+                                <option value="6">
+                                    6 Travellers
+                                </option>
+
+                                <option value="7">
+                                    7 Travellers
+                                </option>
+
+                                <option value="8">
+                                    8 Travellers
+                                </option>
+
+                                <option value="9">
+                                    9 Travellers
+                                </option>
+
+                                <option value="10">
+                                    10 Travellers
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- TRANSPORT -->
+
+                        <div class="mb-3">
+
+                            <label for="transport"
+                                   class="form-label fw-semibold">
+
+                                Transport
+                                <span class="required-star">*</span>
+
+                            </label>
+
+                            <select id="transport"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select transport
+                                </option>
+
+                                <option value="Bus">
+                                    🚌 Bus
+                                </option>
+
+                                <option value="Train">
+                                    🚆 Train
+                                </option>
+
+                                <option value="Flight">
+                                    ✈ Flight
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- SPECIAL REQUEST -->
+
+                        <div class="mb-4">
+
+                            <label for="specialRequest"
+                                   class="form-label fw-semibold">
+
+                                Special Request
+
+                            </label>
+
+                            <textarea id="specialRequest"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Any special requirement?"></textarea>
+
+                        </div>
+
+
+                        <!-- BUTTON -->
+
+                        <button type="submit"
+                                class="btn continue-btn w-100">
+
+                            Continue to Payment →
+                            
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING SUMMARY -->
+
+            <div class="col-lg-5">
+
+                <div class="summary-card">
+
+                    <h3 class="section-title">
+                        Booking Summary
+                    </h3>
+
+                    <p class="text-muted">
+                        Review your selected package.
+                    </p>
+
+
+                    <div class="summary-item">
+
+                        <strong>
+                            Destination
+                        </strong>
+
+                        <div id="summaryDestination">
+                            -
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <strong>
+                            Place
+                        </strong>
+
+                        <div id="summaryPlace">
+                            -
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <strong>
+                            Package
+                        </strong>
+
+                        <div id="summaryPackage">
+                            -
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <strong>
+                            Price Per Person
+                        </strong>
+
+                        <div id="pricePerPerson">
+                            ₹0
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <strong>
+                            Travellers
+                        </strong>
+
+                        <div id="summaryPersons">
+                            2
+                        </div>
+
+                    </div>
+
+
+                    <div class="total-box">
+
+                        <div class="d-flex justify-content-between">
+
+                            <strong>
+                                Total Amount
+                            </strong>
+
+                            <span id="totalPrice"
+                                  class="total-price">
+
+                                ₹0
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert alert-info mt-4 mb-0">
+
+                        <strong>Secure Booking</strong>
+
+                        <br>
+
+                        Your booking details will be saved before
+                        proceeding to the payment page.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white text-center py-4">
+
+    <div class="container">
+
+        <p class="mb-2">
+            © 2026 TravelVista. All rights reserved.
+        </p>
+
+        <a href="packages.html"
+           class="text-info text-decoration-none">
+
+            Explore Packages
+
+        </a>
+
+        <span class="mx-2">|</span>
+
+        <a href="booking-history.html"
+           class="text-info text-decoration-none">
+
+            My Bookings
+
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script src="js/booking.js"></script>
+
+</body>
+
+</html>

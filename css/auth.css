@@ -1,0 +1,689 @@
+
+/* ===============================
+   TRAVELVISTA TRAVEL AUTH PAGES
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #23372f;
+    background: #f6f8f5;
+}
+
+/* NAVBAR */
+
+.travel-navbar {
+    height: 76px;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 15px rgba(25, 54, 38, 0.07);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #173f30;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo i {
+    color: #24825c;
+    font-size: 29px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #4e6056;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #218158;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-nav,
+.signup-nav {
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.login-nav {
+    color: #237650;
+    border: 1px solid #d6e5db;
+}
+
+.login-nav:hover {
+    background: #eef7f0;
+}
+
+.signup-nav {
+    color: white;
+    background: #237a53;
+    border: 1px solid #237a53;
+}
+
+.signup-nav:hover {
+    background: #175e3e;
+}
+
+/* TRAVEL HERO BACKGROUND */
+
+.travel-hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 48px 5%;
+    background:
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=90")
+        center / cover no-repeat;
+}
+
+.signup-hero {
+    background-image:
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90");
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 39, 28, 0.80) 0%,
+        rgba(8, 39, 28, 0.57) 45%,
+        rgba(8, 39, 28, 0.24) 100%
+    );
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 410px;
+    align-items: center;
+    gap: 55px;
+}
+
+/* LEFT HERO TEXT */
+
+.hero-text {
+    max-width: 600px;
+    color: white;
+    padding: 25px 0;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #e4f6e8;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.hero-text h1 {
+    color: white;
+    font-size: clamp(42px, 4.7vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero-text h1 span {
+    color: #bce8bd;
+}
+
+.hero-text > p {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.91);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 27px;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.hero-benefits span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 13px;
+}
+
+.hero-benefits i {
+    color: #bce8bd;
+    font-size: 17px;
+}
+
+/* AUTH CARD */
+
+.travel-auth-card {
+    width: 100%;
+    padding: 32px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+    animation: slideUp 0.6s ease;
+}
+
+.signup-card {
+    padding: 25px 30px;
+}
+
+.card-top-icon {
+    width: 47px;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #e9f5ed;
+    color: #237a53;
+    font-size: 24px;
+    margin-bottom: 17px;
+}
+
+.travel-auth-card h2 {
+    color: #203a2d;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 7px;
+}
+
+.card-subtitle {
+    color: #78867d;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+/* INPUTS */
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #34483b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.field-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-input > i {
+    position: absolute;
+    left: 13px;
+    color: #809187;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.field-input input {
+    width: 100%;
+    height: 45px;
+    padding: 0 42px;
+    border: 1px solid #dce5de;
+    border-radius: 7px;
+    outline: none;
+    color: #233b2d;
+    background: #fbfcfb;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.field-input input::placeholder {
+    color: #a3aea6;
+}
+
+.field-input input:focus {
+    border-color: #398b60;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(45, 130, 82, 0.10);
+}
+
+.show-password {
+    position: absolute;
+    right: 7px;
+    border: none;
+    background: transparent;
+    color: #78877d;
+    cursor: pointer;
+    padding: 7px;
+}
+
+/* FORM OPTIONS */
+
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 1px 0 20px;
+    font-size: 11px;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #67776b;
+}
+
+.form-options input,
+.terms-check input {
+    accent-color: #237a53;
+}
+
+.form-options a {
+    color: #237a53;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.terms-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #68786c;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.terms-check input {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.terms-check a {
+    color: #237a53;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 7px;
+    background: #237a53;
+    color: white;
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.submit-btn:hover {
+    background: #175e3e;
+    transform: translateY(-1px);
+}
+
+.submit-btn i {
+    font-size: 16px;
+}
+
+/* DIVIDER & LINKS */
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 21px 0;
+    color: #9aa59d;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: #e5ebe6;
+}
+
+.switch-account {
+    text-align: center;
+    color: #758278;
+    font-size: 11px;
+    margin: 0;
+}
+
+.switch-account a {
+    color: #237a53;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.secure-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #edf0ed;
+    color: #829086;
+    font-size: 10px;
+}
+
+.secure-note i {
+    color: #32875c;
+    font-size: 15px;
+}
+
+/* BENEFITS */
+
+.booking-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 32px 8%;
+    background: white;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.benefit > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #eaf5ed;
+    color: #237a53;
+    font-size: 21px;
+}
+
+.benefit h3 {
+    color: #294333;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.benefit p {
+    color: #7b887e;
+    font-size: 11px;
+    margin: 0;
+}
+
+.signup-promise {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 15px;
+    background: white;
+    color: #2a6c49;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.signup-promise i {
+    font-size: 22px;
+}
+
+/* FOOTER */
+
+.travel-footer {
+    padding: 19px 15px;
+    text-align: center;
+    background: #173e2d;
+    color: #e2eee5;
+    font-size: 11px;
+}
+
+.travel-footer p {
+    margin: 0;
+}
+
+/* ANIMATION */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr) 380px;
+        gap: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: 47px;
+    }
+
+    .travel-auth-card {
+        padding: 25px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+    .travel-navbar {
+        height: 68px;
+    }
+
+    .nav-container {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo i {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .login-nav,
+    .signup-nav {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .travel-hero {
+        min-height: auto;
+        padding: 35px 16px;
+        background-position: center;
+    }
+
+    .hero-overlay {
+        background: rgba(8, 39, 28, 0.55);
+    }
+
+    .hero-container {
+        max-width: 440px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .hero-tag {
+        margin-bottom: 16px;
+        font-size: 9px;
+    }
+
+    .hero-text h1 {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .hero-text > p {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    .hero-benefits {
+        display: none;
+    }
+
+    .travel-auth-card,
+    .signup-card {
+        padding: 25px 22px;
+    }
+
+    .travel-auth-card h2 {
+        font-size: 24px;
+    }
+
+    .booking-benefits {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 20px;
+    }
+
+    .benefit {
+        justify-content: flex-start;
+        max-width: 320px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .signup-promise {
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 18px;
+        gap: 5px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .login-nav,
+    .signup-nav {
+        padding: 7px 9px;
+    }
+
+    .travel-auth-card {
+        padding: 22px 17px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
